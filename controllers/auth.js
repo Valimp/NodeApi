@@ -3,29 +3,32 @@ const jwt = require('jsonwebtoken');
 
 exports.login = async ( req, res ) => {
 
-    let statusCode = 200;
-
     const { email, password } = req.body;
 
-    const user = await User.findOne({ 'email': email });
-    
-    if(user === null){
-        statusCode = 404;
-        res.status(statusCode).send()
-    } else {
-        if(user.email === email && user.password === password) {
+    try {
 
-            // Generate JWT and send it
-            const JWT = jwt.sign( { email }, process.env.PRIVATE_KEY, { algorithm: 'RS256' } );
-            res.status(statusCode).send(JWT);
+        const user = await User.findOne({ 'email': email });
 
+        if (user === null) {
+            res.status(404).send()
         } else {
-            
-            // Bad password
-            statusCode = 404;
-            res.status(statusCode).send();
+            if (user.email === email && user.password === password) {
 
+                // Generate JWT and send it
+                const JWT = jwt.sign( { email }, process.env.PRIVATE_KEY, { algorithm: 'RS256' } );
+
+                res.status(200).send(JWT);
+
+            } else {
+
+                res.status(401).send()
+
+            };
         };
+    } catch (error) {
+
+        res.status(400).json({ error })
+
     };
 };
 
