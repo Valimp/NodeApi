@@ -58,11 +58,15 @@ exports.patchUser = async ( req, res ) => {
 // Delete a user
 exports.deleteUser = async ( req, res ) => {
 
-    await User.deleteOne({ _id: req.params.id })
-    .then( () => {
-        return res.status(204).json({'message': 'User deleted'})
-    })
-    .catch( (error) => {
-        return res.status(400).json({error})
-    });
+    try {
+
+        await User.deleteOne({ _id: req.params.id })
+
+        res.status(204).json()
+
+    } catch (error) {
+
+        res.status(400).json({error})
+
+    };
 };
