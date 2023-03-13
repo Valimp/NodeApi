@@ -4,19 +4,22 @@ const User = require('../models/users');
 // Create a new user
 exports.createUser = async ( req, res ) => {
 
-    const newUser = new User({
-        username: req.body.username,
-        email: req.body.email,
-        password: req.body.password
-    });
+    try {
+        const newUser = new User({
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password
+        });
 
-    await newUser.save()
-    .then( (user) => {
-        return res.status(201).json({user})
-    })
-    .catch( (error) => {
-        return res.status(400).json({error})
-    });
+        const user = await newUser.save();
+
+        res.status(201).json({ user });
+
+    } catch (error) {
+
+        res.status(400).json({ error })
+
+    };
 };
 
 // Read a user
