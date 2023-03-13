@@ -10,7 +10,7 @@ router.use( (req, res, next) => {
 
 router.post('/create', UserCtrl.createUser);
 router.get('/:id', JWTGuardian.jwtguardian, UserCtrl.readUser);
-router.patch('/patch/:id', UserCtrl.patchUser);
-router.delete('/delete/:id', UserCtrl.deleteUser);
+router.patch('/patch/:id', JWTGuardian.jwtguardian, UserCtrl.patchUser);
+router.delete('/delete/:id', JWTGuardian.jwtguardian, UserCtrl.deleteUser);
 
 module.exports = router;
