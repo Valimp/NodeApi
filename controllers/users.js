@@ -5,7 +5,7 @@ const User = require('../models/users');
 exports.createUser = async ( req, res ) => {
 
     try {
-        
+
         const newUser = new User({
             username: req.body.username,
             email: req.body.email,
@@ -41,13 +41,18 @@ exports.readUser = async ( req, res ) => {
 
 // Patch a user
 exports.patchUser = async ( req, res ) => {
-    await User.updateOne({ _id: req.params.id }, { $set: req.body })
-    .then( (user) =>{
-        return res.status(200).json({user})
-    })
-    .catch ( (error) =>{
-        return res.status(400).json({error})
-    });
+
+    try {
+
+        const user = await User.updateOne({ _id: req.params.id }, { $set: req.body })
+
+        res.status(200).json({user})
+
+    } catch (error) {
+
+        res.status(400).json({error})
+
+    };
 };
 
 // Delete a user
