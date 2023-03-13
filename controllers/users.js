@@ -5,6 +5,7 @@ const User = require('../models/users');
 exports.createUser = async ( req, res ) => {
 
     try {
+        
         const newUser = new User({
             username: req.body.username,
             email: req.body.email,
@@ -24,14 +25,18 @@ exports.createUser = async ( req, res ) => {
 
 // Read a user
 exports.readUser = async ( req, res ) => {
-    
-    const user = await User.findOne({ _id: req.params.id })
-    .then( (user) => {
-        return res.status(200).json({user})
-    })
-    .catch( (error) =>{
-        return res.status(400).json({error})
-    });
+
+    try {
+
+        const user = await User.findOne({ _id: req.params.id })
+
+        res.status(200).json({ user })
+
+    } catch (error) {
+
+        res.status(400).json({ error })
+
+    };
 };
 
 // Patch a user
