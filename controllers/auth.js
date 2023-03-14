@@ -1,5 +1,6 @@
 const User = require('../models/users');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 exports.login = async ( req, res ) => {
 
@@ -12,7 +13,10 @@ exports.login = async ( req, res ) => {
         if (user === null) {
             res.status(404).send()
         } else {
-            if (user.email === email && user.password === password) {
+
+            const passwordMatch = bcrypt.compareSync( password, user.password )
+
+            if (passwordMatch) {
 
                 // Generate JWT and send it
                 const JWT = jwt.sign( { email }, process.env.PRIVATE_KEY, { algorithm: 'RS256' } );
