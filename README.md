@@ -29,8 +29,9 @@ All responses are returned in JSON format.
 
 ## Targets
 
-- [ ] Create a CRUD API
-- [ ] Create a JWT authentication
+- [x] Create a CRUD API
+- [x] Create a JWT authentication
+- [x] Use bcrypt to storage chiffred password
 - [ ] Prepare MERN application ( MongoDB, Express, React, Node )
 - [ ] Use units tests with JEST
 
