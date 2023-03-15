@@ -11,7 +11,9 @@ exports.login = async ( req, res ) => {
         const user = await User.findOne({ 'email': email });
 
         if (user === null) {
+
             res.status(404).send()
+
         } else {
 
             const passwordMatch = bcrypt.compareSync( password, user.password )
