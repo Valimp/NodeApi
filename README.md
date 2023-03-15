@@ -20,10 +20,17 @@ To start the API, run `npm start`. This will start the server on port 3000 (or a
 
 The API provides the following endpoints:
 
+### CRUD USERS
+
 - `GET /users/:id` - Returns a single user with the specified ID.
 - `POST /users` - Adds a new user to the database. Requires a JSON payload with the following fields: name, email, and password.
 - `PATCH /users/:id` - Updates an existing user with the specified ID. Requires a JSON payload with one or more of the following fields: name, email, or password.
 - `DELETE /users/:id` - Deletes a user with the specified ID. 
+
+### AUTH
+
+- `POST /auth/login` - Send email and password - Return a token
+- `GET /auth/logout` - Detroy auth session token
 
 All responses are returned in JSON format.
 
