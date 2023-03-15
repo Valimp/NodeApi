@@ -6,9 +6,13 @@ exports.jwtguardian = ( req, res, next ) => {
 
     jwt.verify(idToken, process.env.PUBLIC_KEY, ( err, decoded ) => {
         if(err){
-            res.status(401).send('Unauthorized')
+
+            res.status(401).send('Unauthorized');
+
         } else {
+
             next();
+
         };
     });
 };

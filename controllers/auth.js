@@ -12,11 +12,11 @@ exports.login = async ( req, res ) => {
 
         if (user === null) {
 
-            res.status(404).send()
+            res.status(404).send();
 
         } else {
 
-            const passwordMatch = bcrypt.compareSync( password, user.password )
+            const passwordMatch = bcrypt.compareSync( password, user.password );
 
             if (passwordMatch) {
 
@@ -27,13 +27,13 @@ exports.login = async ( req, res ) => {
 
             } else {
 
-                res.status(401).send()
+                res.status(401).send();
 
             };
         };
     } catch (error) {
 
-        res.status(400).json({ error })
+        res.status(400).json({ error });
 
     };
 };
