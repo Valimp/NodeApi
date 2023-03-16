@@ -2,6 +2,25 @@
 
 This is a simple CRUD (Create, Read, Update, Delete) API for managing user data in MongoDB. It uses Node.js and the Express framework to handle HTTP requests and responses.
 
+## Packages and DB
+
+MongoDB : noSQL database  
+[MongoDB documentation](https://www.mongodb.com/docs/)  
+
+NodeJS ft. express:  
+[NodeJS documentation](https://nodejs.org/en)  
+[express documentation](https://expressjs.com/fr/guide/routing.html)  
+
+Units tests with Jest :  
+[Jest documentation](https://jestjs.io/fr/docs/getting-started)  
+
+Crypted password storage with bcrypt :  
+[bcrypt](https://www.npmjs.com/package/bcrypt)  
+
+Authenticate JWT with JsonWebToken :  
+[JsonWebToken](https://www.npmjs.com/package/jsonwebtoken)
+
+
 ## Setup
 
 To use this API, you will need to have the following installed on your system:
