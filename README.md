@@ -56,6 +56,7 @@ All responses are returned in JSON format.
 ## Targets
 
 - [x] Create a CRUD API
+- [x] Regex middleware
 - [x] Create a JWT authentication
 - [x] Use bcrypt to storage chiffred password
 - [ ] Prepare MERN application ( MongoDB, Express, React, Node )
