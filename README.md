@@ -60,6 +60,6 @@ All responses are returned in JSON format.
 - [x] Create a JWT authentication
 - [x] Use bcrypt to storage chiffred password
 - [ ] Prepare MERN application ( MongoDB, Express, React, Node )
-- [ ] Use units tests with JEST
+- [x] Use units tests with JEST
 
 This list may be updated..
